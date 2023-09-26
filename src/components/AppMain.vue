@@ -30,7 +30,7 @@ export default {
 
 
         <div class="container p-5 bg-white">
-            <div class="container counterCard text-white d-flex align-items-center">Founded 50</div>
+            <div class="container counterCard text-white d-flex align-items-center fw-bold">Founded 50 cards</div>
             <div class="row">
                 <div class="my_col" v-for="card in store.cards">
                     <div class="card">
@@ -60,6 +60,7 @@ select{
 .counterCard {
     background-color: black;
     height: 50px;
+    padding: 30px 15px;
 }
 
 .my_col {
