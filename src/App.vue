@@ -1,11 +1,29 @@
-<script setup>
+<script>
+import AppHeader from './components/AppHeader.vue'
+import AppMain from './components/AppMain.vue'
+
+
+export default {
+    name: 'App',
+
+    components: {
+        AppHeader,
+        AppMain
+    }
+
+}
+
 
 </script>
 
 <template>
+
+  <AppHeader/>
+
+  <AppMain/>
   
 </template>
 
-<style>
-
+<style lang="scss">
+@use './assets/scss/app.scss'
 </style>
