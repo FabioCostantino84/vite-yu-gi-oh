@@ -1,13 +1,15 @@
 <script>
 import { store } from '../store.js'
 import AppSelect from './AppSelect.vue'
+import Cards from "./Cards.vue";
 
 
 export default {
     name: 'AppMain',
 
     components: {
-        AppSelect
+        AppSelect,
+        Cards,
     },
     data() {
         return {
@@ -42,7 +44,8 @@ export default {
         <div class="container p-5 bg-white">
             <div class="container counterCard text-white d-flex align-items-center fw-bold">Founded 50 cards</div>
             <div class="row">
-                <div class="my_col" v-for="card in store.cards">
+                <Cards v-for="card in store.cards" :card="card" />
+               <!--  <div class="my_col" v-for="card in store.cards">
                     <div class="card">
                         <img class="w-100" :src='card.card_images[0].image_url' alt="">
                         <div style="height: 150px;" class="card-body  mb-3">
@@ -50,7 +53,7 @@ export default {
                             <p class="card-text">{{ card.archetype }}</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
@@ -64,9 +67,7 @@ main {
     background-color: $yugioh__bg;
 }
 
-select {
-    width: 20%;
-}
+
 
 .counterCard {
     background-color: black;
@@ -74,17 +75,4 @@ select {
     padding: 30px 15px;
 }
 
-.my_col {
-    width: calc(100% / 10 * 2);
-}
-
-.card {
-    border: none;
-}
-
-.card-body {
-    background-color: $yugioh__bg;
-    text-align: center;
-
-}
 </style>

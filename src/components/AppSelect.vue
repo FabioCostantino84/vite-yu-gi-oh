@@ -27,4 +27,11 @@ export default {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+select {
+    width: 20%;
+}
+
+
+</style>
