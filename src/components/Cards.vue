@@ -1,19 +1,21 @@
 <script>
-import { store } from '../store.js'
+/* import { store } from '../store.js' */
 
 export default {
     name: 'Cards',
 
-    props: ['card'],
+    props: {
+        card: Object,
+    },
 
-    data() {
+    /* data() {
         return {
             store
         }
-    },
-    created() {
+    }, */
+    /* created() {
         store.fetchData();
-    }
+    } */
 }
 
 </script>

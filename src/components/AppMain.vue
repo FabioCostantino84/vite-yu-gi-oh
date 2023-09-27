@@ -1,20 +1,20 @@
 <script>
 import { store } from '../store.js'
-import AppSelect from './AppSelect.vue'
 import Cards from "./Cards.vue"
+import AppSelect from './AppSelect.vue'
 
 
 export default {
     name: 'AppMain',
 
     components: {
-        AppSelect,
         Cards,
+        AppSelect,
 
     },
     data() {
         return {
-            store
+            store,
         }
     },
     created() {
@@ -22,9 +22,13 @@ export default {
     },
     methods:{
         filterArchetype(){
-            console.log('ho cliccato');
+            const url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php' + `?archetype=${store.archetypeSelect}`
+       
+            console.log(url);
+            this.store.base_url = url + '&num=20&offset=0'
+            store.fetchData(url)
         }
-    }
+    },
 }
 </script>
     
@@ -33,7 +37,7 @@ export default {
 
         <div class="container">
 
-            <AppSelect @archetype="filterArchetype()" />
+            <AppSelect @archetypeSearch="filterArchetype()" />
 
             <!-- <select class="form-select mb-4 fs-4" aria-label="">
                 <option selected disabled>Select Archetype</option>

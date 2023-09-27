@@ -3,7 +3,7 @@ import { store } from '../store.js'
 
 export default {
     name: 'AppSelect',
-    emits: ['archetype'],
+    emits: ['archetypeSearch'],
 
 
     data() {
@@ -13,12 +13,12 @@ export default {
     },
     created() {
         store.fetchData();
-    }
+    },
 }
 
 </script>
 <template>
-    <select class="form-select mb-4 fs-4" @change="$emit('archetype')">
+    <select class="form-select mb-4 fs-4" @change="$emit('archetypeSearch')" v-model="store.archetypeSelect">
         <option selected disabled>Select Archetype</option>
         <option value="1">Alien</option>
         <option value="1">Noble Knight</option>
