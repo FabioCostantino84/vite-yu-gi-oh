@@ -1,7 +1,7 @@
 <script>
 import { store } from '../store.js'
 import AppSelect from './AppSelect.vue'
-import Cards from "./Cards.vue";
+import Cards from "./Cards.vue"
 
 
 export default {
@@ -10,6 +10,7 @@ export default {
     components: {
         AppSelect,
         Cards,
+
     },
     data() {
         return {
@@ -18,6 +19,11 @@ export default {
     },
     created() {
         store.fetchData();
+    },
+    methods:{
+        filterArchetype(){
+            console.log('ho cliccato');
+        }
     }
 }
 </script>
@@ -27,7 +33,7 @@ export default {
 
         <div class="container">
 
-            <AppSelect />
+            <AppSelect @archetype="filterArchetype()" />
 
             <!-- <select class="form-select mb-4 fs-4" aria-label="">
                 <option selected disabled>Select Archetype</option>

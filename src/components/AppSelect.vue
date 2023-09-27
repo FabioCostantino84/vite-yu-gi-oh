@@ -3,10 +3,12 @@ import { store } from '../store.js'
 
 export default {
     name: 'AppSelect',
+    emits: ['archetype'],
+
 
     data() {
         return {
-            store
+            store,
         }
     },
     created() {
@@ -16,7 +18,7 @@ export default {
 
 </script>
 <template>
-    <select class="form-select mb-4 fs-4" aria-label="">
+    <select class="form-select mb-4 fs-4" @change="$emit('archetype')">
         <option selected disabled>Select Archetype</option>
         <option value="1">Alien</option>
         <option value="1">Noble Knight</option>
