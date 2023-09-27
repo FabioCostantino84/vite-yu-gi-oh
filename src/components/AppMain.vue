@@ -1,8 +1,14 @@
 <script>
 import { store } from '../store.js'
+import AppSelect from './AppSelect.vue'
+
 
 export default {
     name: 'AppMain',
+
+    components: {
+        AppSelect
+    },
     data() {
         return {
             store
@@ -19,14 +25,16 @@ export default {
 
         <div class="container">
 
-            <select class="form-select mb-4 fs-4" aria-label="">
+            <AppSelect />
+
+            <!-- <select class="form-select mb-4 fs-4" aria-label="">
                 <option selected disabled>Select Archetype</option>
                 <option value="1">Alien</option>
                 <option value="1">Noble Knight</option>
                 <option value="2">Tainted Treasure</option>
                 <option value="3">Melodious</option>
                 <option value="3">Archfiend</option>
-            </select>
+            </select> -->
 
         </div>
 
@@ -51,12 +59,13 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/partials/variable.scss' as *;
+
 main {
     background-color: $yugioh__bg;
 }
 
-select{
-    width: 15%;
+select {
+    width: 20%;
 }
 
 .counterCard {
@@ -69,11 +78,11 @@ select{
     width: calc(100% / 10 * 2);
 }
 
-.card{
+.card {
     border: none;
 }
 
-.card-body{
+.card-body {
     background-color: $yugioh__bg;
     text-align: center;
 
