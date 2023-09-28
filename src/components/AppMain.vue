@@ -20,10 +20,10 @@ export default {
     created() {
         store.fetchData();
     },
-    methods:{
-        filterArchetype(){
-            const url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php' + `?archetype=${store.archetypeSelect}`
-       
+    methods: {
+        searchArchetype() {
+            const url = 'https://db.ygoprodeck.com/api/v7/cardinfo.php' + `?archetype=${store.selectArchetype}`
+
             console.log(url);
             this.store.base_url = url + '&num=20&offset=0'
             store.fetchData(url)
@@ -34,36 +34,15 @@ export default {
     
 <template>
     <main class="py-4">
-
         <div class="container">
 
-            <AppSelect @archetypeSearch="filterArchetype()" />
-
-            <!-- <select class="form-select mb-4 fs-4" aria-label="">
-                <option selected disabled>Select Archetype</option>
-                <option value="1">Alien</option>
-                <option value="1">Noble Knight</option>
-                <option value="2">Tainted Treasure</option>
-                <option value="3">Melodious</option>
-                <option value="3">Archfiend</option>
-            </select> -->
+            <AppSelect @archSearch="searchArchetype()" />
 
         </div>
-
-
         <div class="container p-5 bg-white">
-            <div class="container counterCard text-white d-flex align-items-center fw-bold">Founded 50 cards</div>
+            <div class="container counterCard text-white d-flex align-items-center fw-bold">Founded 20 cards</div>
             <div class="row">
                 <Cards v-for="card in store.cards" :card="card" />
-               <!--  <div class="my_col" v-for="card in store.cards">
-                    <div class="card">
-                        <img class="w-100" :src='card.card_images[0].image_url' alt="">
-                        <div style="height: 150px;" class="card-body  mb-3">
-                            <h5 class="card-title text-uppercase text-align-center text-white">{{ card.name }}</h5>
-                            <p class="card-text">{{ card.archetype }}</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </main>
@@ -76,13 +55,9 @@ export default {
 main {
     background-color: $yugioh__bg;
 }
-
-
-
 .counterCard {
     background-color: black;
     height: 50px;
     padding: 30px 15px;
 }
-
 </style>
